@@ -23,18 +23,15 @@ class PessoaUpdateView(UpdateView):
     form_class = PessoaForm
     template_name = "criar_pessoa.html"
     context_object_name = "pessoa"
-    # Namespace corrigido para o nome do app
     success_url = reverse_lazy('cadastrar_pessoa:listar_pessoas')
 
 class PessoaDeleteView(DeleteView):
     model = Pessoa
     template_name = 'deletar_pessoa.html'
     context_object_name = 'pessoa'
-    # Namespace corrigido para o nome do app
     success_url = reverse_lazy('cadastrar_pessoa:listar_pessoas')
 
 class PessoaDetailView(DetailView):
     model = Pessoa
-    # Corrigido o erro de digitação de 'pessoas' para 'pessoa'
     template_name = 'detalhes_pessoa.html'
     context_object_name = 'pessoa'
