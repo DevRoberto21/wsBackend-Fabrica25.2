@@ -1,0 +1,103 @@
+/* Importação de fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Estilos globais */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #e9f0f6; /* Azul claro e suave */
+    color: #334455; /* Cor de texto mais escura */
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 20px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+h1, h2, h3 {
+    color: #4a69bd; /* Azul mais vibrante */
+    border-bottom: 2px solid #a4b0be;
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+
+/* Estilo para listas (listagem de pessoas/cachorros) */
+ul {
+    list-style-type: none;
+    padding: 0;
+    display: grid; /* Layout de grade */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+li {
+    background: #fdfefe;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+
+li:hover {
+    transform: translateY(-5px); /* Efeito sutil ao passar o mouse */
+}
+
+/* Estilos de formulário */
+form p {
+    margin-bottom: 15px;
+}
+
+input[type="text"], input[type="email"], input[type="tel"], select, input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box; /* Garante que padding e borda não mudem a largura total */
+}
+
+button[type="submit"] {
+    background-color: #4a69bd;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #3b5091;
+}
+
+/* Estilos de links de navegação */
+a {
+    color: #4a69bd;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para os botões de ação na lista (Editar, Deletar) */
+li a {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #e9f0f6;
+    border-radius: 5px;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+li a:hover {
+    background-color: #dbe4ef;
+    text-decoration: none;
+}
