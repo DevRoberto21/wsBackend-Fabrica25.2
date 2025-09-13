@@ -1,0 +1,24 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'petshop/style.css' %}">
+<h2>Cachorros de {{ pessoa.nome }}</h2>
+{% if pessoa.cachorros.all %}
+    <ul>
+        {% for cachorro in pessoa.cachorros.all %}
+            <li>
+                <strong>Nome:</strong> {{ cachorro.nome }} <br>
+                <strong>Raça:</strong> {{ cachorro.raca }} <br>
+                <strong>Idade:</strong> {{ cachorro.idade }} anos <br>
+                <br>
+                <a href="{% url 'cachorros:atualizar_cachorro' pk=cachorro.pk %}">Editar Cachorro</a>
+                <a href="{% url 'cachorros:deletar_cachorro' pk=cachorro.pk %}">Deletar Cachorro</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Ainda não há cachorros cadastrados para {{ pessoa.nome }}.</p>
+{% endif %}
+
+<hr>
+<a href="{% url 'cachorros:criar_cachorro' pk=pessoa.pk %}">Cadastrar outro cachorro</a>
+<br>
+<a href="{% url 'pessoas:listar_pessoas' %}">Voltar para a lista de pessoas</a>

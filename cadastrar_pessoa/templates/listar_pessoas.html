@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Pessoas</title>
+
+    <link rel="stylesheet" href="{% static 'petshop/style.css' %}">
+</head>
+<body>
+    <h1>Lista de Tutores</h1>
+    
+    {% if pessoas %}
+        <ul>
+        {% for pessoa in pessoas %}
+            <li>
+                <h3>{{ pessoa.nome }}</h3>
+                <p>
+                    <strong>Email:</strong> {{ pessoa.email }} <br>
+                    <strong>Telefone:</strong> {{ pessoa.telefone }}
+                </p>
+                <a href="{% url 'cadastrar_pessoa:detalhes_pessoa' pk=pessoa.pk %}">Ver cachorros</a>
+                <a href="{% url 'cadastrar_pessoa:atualizar_pessoa' pk=pessoa.pk %}">Editar</a>
+                <a href="{% url 'cadastrar_pessoa:deletar_pessoa' pk=pessoa.pk %}">Deletar</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum tutor cadastrado.</p>
+    {% endif %}
+    
+    <hr>
+    <a href="{% url 'cadastrar_pessoa:criar_pessoa' %}">Cadastrar Novo Tutor</a>
+</body>
+</html>
