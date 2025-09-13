@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cachorros de {{ dono.nome }}</title>
+    <link rel="stylesheet" href="{% static 'petshop/style.css' %}">
+</head>
+<body>
+
+    <h1>Cachorros de {{ dono.nome }}</h1>
+    
+    {% if cachorros %}
+        <ul>
+        {% for cachorro in cachorros %}
+            <li>
+                <h3>{{ cachorro.nome }}</h3>
+                <p>
+                    <strong>Raça:</strong> {{ cachorro.raca }}<br>
+                    <strong>Idade:</strong> {{ cachorro.idade }} anos
+                </p>
+                <a href="{% url 'cachorros:atualizar_cachorro' pk=cachorro.pk %}">Editar</a>
+                <a href="{% url 'cachorros:deletar_cachorro' pk=cachorro.pk %}">Deletar</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Ainda não há cachorros cadastrados para {{ dono.nome }}.</p>
+    {% endif %}
+
+    <hr>
+    <a href="{% url 'cachorros:criar_cachorro' pk=dono.pk %}">Adicionar outro cachorro</a>
+    <br>
+    <a href="{% url 'pessoas:listar_pessoas' %}">Voltar para a lista de tutores</a>
+
+</body>
+</html>

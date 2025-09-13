@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-s/deletar_cachorro.htmlale=1.0">
+    <title>Deletar Cachorro</title>
+    <link rel="stylesheet" href="{% static 'petshop/style.css' %}">
+</head>
+<body>
+
+    <h1>Deletar Cachorro</h1>
+    <p>Você tem certeza que deseja deletar "{{ cachorro.nome }}"?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar</button>
+        <a href="{% url 'pessoas:detalhes_pessoa' pk=cachorro.dono.pk %}">Cancelar</a>
+    </form>
+
+</body>
+</html>

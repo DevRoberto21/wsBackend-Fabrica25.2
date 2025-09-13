@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'petshop/style.css' %}">
+    <title>
+        {% if form.instance.pk %}
+            Atualizar Cachorro
+        {% else %}
+            Cadastrar Cachorro
+        {% endif %}
+    </title>
+</head>
+<body>
+
+    <h1>
+        {% if form.instance.pk %}
+            Atualizar informações de {{ form.instance.nome }}
+        {% else %}
+            Cadastrar Novo Cachorro
+        {% endif %}
+    </h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+    </form>
+
+    <hr>
+    <a href="{% url 'pessoas:detalhes_pessoa' pk=dono.pk %}">Voltar para os detalhes do dono</a>
+
+</body>
+</html>
